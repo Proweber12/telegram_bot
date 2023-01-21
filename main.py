@@ -21,8 +21,8 @@ def get_random_time(start):
     return start + random_minutes
 
 
-async def send_messages(msg: str, chat_id=int(os.environ.get('CHAT_ID'))):
-    send_time = datetime.strptime(str(get_random_time(start_dobroutro)), '%H:%M:%S').time()
+async def send_messages(start, msg: str, chat_id=int(os.environ.get('CHAT_ID'))):
+    send_time = datetime.strptime(str(get_random_time(start)), '%H:%M:%S').time()
     while True:
         if f'{send_time:%H:%M}' == f'{datetime.now().time():%H:%M}':
             await bot_head.send_message(chat_id=chat_id, text=msg)
@@ -33,11 +33,11 @@ async def send_messages(msg: str, chat_id=int(os.environ.get('CHAT_ID'))):
 
 
 async def send_dobroutro():
-    await send_messages(random.choice(list_dobroutrov))
+    await send_messages(start_dobroutro, random.choice(list_dobroutrov))
 
 
 async def send_dobranich():
-    await send_messages(random.choice(list_dobranichey))
+    await send_messages(start_dobranich, random.choice(list_dobranichey))
 
 
 async def main():
