@@ -4,6 +4,12 @@ import asyncio
 from datetime import datetime, timedelta, time
 from time import sleep
 import os
+from dotenv import load_dotenv
+
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
 
 API_TOKEN = os.environ.get('API_TOKEN')
 
@@ -28,7 +34,6 @@ async def send_messages(start, msg: str, chat_id=int(os.environ.get('CHAT_ID')))
             await bot_head.send_message(chat_id=chat_id, text=msg)
             break
         else:
-            print(send_time)
             sleep(5)
 
 
