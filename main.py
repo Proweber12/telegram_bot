@@ -47,8 +47,8 @@ async def send_dobranich():
 
 async def main():
     while True:
-        await send_dobroutro()
         await send_dobranich()
+        await send_dobroutro()
 
 if __name__ == '__main__':
     asyncio.run(main())
