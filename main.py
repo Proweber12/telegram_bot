@@ -1,7 +1,7 @@
-from aiogram import Bot, Dispatcher, types, executor
+from aiogram import Bot, Dispatcher
 import random
 import asyncio
-from datetime import datetime, timedelta, time
+from datetime import datetime, timedelta
 from time import sleep
 import os
 from dotenv import load_dotenv
@@ -48,7 +48,9 @@ async def send_dobranich():
 async def main():
     while True:
         await send_dobranich()
+        sleep(3700)
         await send_dobroutro()
+        sleep(3700)
 
 if __name__ == '__main__':
     asyncio.run(main())
