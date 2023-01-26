@@ -35,6 +35,7 @@ async def send_messages(start, msg: str, chat_id=int(os.environ.get('CHAT_ID')))
             break
         else:
             sleep(5)
+    sleep(3700)
 
 
 async def send_dobroutro():
@@ -47,6 +48,7 @@ async def send_dobranich():
 
 async def main():
     while True:
+        sleep(3700)
         await send_dobranich()
         sleep(3700)
         await send_dobroutro()
